@@ -23,7 +23,6 @@ module Feedzirra
       element :"itunes:image", :value => :href, :as => :itunes_image
       element :"itunes:explicit", :as => :itunes_explicit
       element :"itunes:keywords", :as => :itunes_keywords
-      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
 
       # New URL for the podcast feed
       element :"itunes:new-feed-url", :as => :itunes_new_feed_url

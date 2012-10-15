@@ -26,7 +26,7 @@ module Feedzirra
       element :enclosure, :value => :length, :as => :enclosure_length
       element :enclosure, :value => :type, :as => :enclosure_type
       element :enclosure, :value => :url, :as => :enclosure_url
-      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+      elements :'media:content', :as => :images, :value => :url
 
     end
   end

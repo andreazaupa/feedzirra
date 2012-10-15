@@ -26,8 +26,16 @@ module Feedzirra
       elements :category, :as => :categories
 
       element :guid, :as => :entry_id
-      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
 
+      elements :'media:content', :as => :all_images, :value => :url, :with=>{:medium=>"image"}
+
+      def images
+        self.all_images.select{|r| /(jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG)/.match(r) } if self.all_images.present?
+      end
+
+      def image
+        self.images.first if self.images.present?
+      end
 
     end
 

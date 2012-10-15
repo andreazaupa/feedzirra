@@ -20,7 +20,7 @@ module Feedzirra
       element :modified, :as => :updated
       elements :category, :as => :categories, :value => :term
       elements :link, :as => :links, :value => :href
-      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+      elements :'media:content', :as => :images, :value => :url
 
 
       def url
