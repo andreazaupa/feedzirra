@@ -10,6 +10,7 @@ module Feedzirra
       element :link, :as => :url, :value => :href, :with => {:type => "text/html"}
       element :link, :as => :feed_url, :value => :href, :with => {:type => "application/atom+xml"}
       elements :link, :as => :links, :value => :href
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
       elements :entry, :as => :entries, :class => GoogleDocsAtomEntry
 
       def url

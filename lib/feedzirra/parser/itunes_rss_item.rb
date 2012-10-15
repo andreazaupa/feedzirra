@@ -1,5 +1,5 @@
 module Feedzirra
-  
+
   module Parser
     # iTunes extensions to the standard RSS2.0 item
     # Source: http://www.apple.com/itunes/whatson/podcasts/specs.html
@@ -26,7 +26,9 @@ module Feedzirra
       element :enclosure, :value => :length, :as => :enclosure_length
       element :enclosure, :value => :type, :as => :enclosure_type
       element :enclosure, :value => :url, :as => :enclosure_url
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+
     end
   end
-  
+
 end

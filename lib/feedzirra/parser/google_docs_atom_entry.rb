@@ -3,7 +3,7 @@ module Feedzirra
     class GoogleDocsAtomEntry
       include SAXMachine
       include FeedEntryUtilities
-      
+
       element :title
       element :link, :as => :url, :value => :href, :with => {:type => "text/html", :rel => "alternate"}
       element :name, :as => :author
@@ -20,6 +20,8 @@ module Feedzirra
       element :"docs:md5Checksum", :as => :checksum
       element :"docs:filename", :as => :original_filename
       element :"docs:suggestedFilename", :as => :suggested_filename
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+
 
       def url
         @url ||= links.first

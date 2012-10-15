@@ -5,7 +5,7 @@ module Feedzirra
     class AtomFeedBurnerEntry
       include SAXMachine
       include FeedEntryUtilities
-      
+
       element :title
       element :name, :as => :author
       element :link, :as => :url, :value => :href, :with => {:type => "text/html", :rel => "alternate"}
@@ -20,6 +20,8 @@ module Feedzirra
       element :modified, :as => :updated
       elements :category, :as => :categories, :value => :term
       elements :link, :as => :links, :value => :href
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+
 
       def url
         @url ||= links.first

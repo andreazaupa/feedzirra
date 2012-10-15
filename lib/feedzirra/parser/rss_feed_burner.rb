@@ -8,6 +8,8 @@ module Feedzirra
       element :title
       element :description
       element :link, :as => :url
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+
       elements :item, :as => :entries, :class => RSSFeedBurnerEntry
 
       attr_accessor :feed_url

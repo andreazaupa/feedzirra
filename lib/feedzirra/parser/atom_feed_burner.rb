@@ -10,6 +10,8 @@ module Feedzirra
       element :link, :as => :url, :value => :href, :with => {:type => "text/html"}
       element :link, :as => :feed_url, :value => :href, :with => {:type => "application/atom+xml"}
       elements :entry, :as => :entries, :class => AtomFeedBurnerEntry
+      elements :'media:content', :as => :images, :value => :url, :with => {:medium => :image}
+
 
       def self.able_to_parse?(xml) #:nodoc:
         ((/Atom/ =~ xml) && (/feedburner/ =~ xml) && !(/\<rss|\<rdf/ =~ xml)) || false
